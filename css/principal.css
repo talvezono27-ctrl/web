@@ -1,0 +1,947 @@
+/* ==========================================================================
+   AMONG US - EXPERIENCIA CINEMATOGRÁFICA
+   Hoja de Estilos Principal (principal.css)
+   ========================================================================== */
+
+:root {
+  /* Paleta de colores oficial del proyecto */
+  --color-negro: #111114;
+  --color-grafito: #25232B;
+  --color-vino: #7B263D;
+  --color-vino-oscuro: #4d1524;
+  --color-vino-brillante: #9e2f4c;
+  --color-dorado: #D6A85F;
+  --color-dorado-claro: #f0c78a;
+  --color-marfil: #E9E4DC;
+  --color-gris-humo: #77747D;
+  --color-gris-medio: #3a3744;
+
+  /* Colores de facción */
+  --color-tripulante-cyan: #3fe0d0;
+  --color-tripulante-azul: #277da1;
+  --color-impostor-rojo: #e63946;
+  --color-impostor-glow: rgba(230, 57, 70, 0.35);
+
+  /* Degradados cinematográficos */
+  --grad-fondo: linear-gradient(180deg, #111114 0%, #17161c 50%, #111114 100%);
+  --grad-hero: linear-gradient(180deg, transparent 0%, transparent 75%, rgba(17, 17, 20, 0.8) 90%, #111114 100%);
+  --grad-card: none;
+  --grad-impostor: linear-gradient(135deg, rgba(123, 38, 61, 0.85) 0%, rgba(37, 35, 43, 0.95) 100%);
+  --grad-tripulante: linear-gradient(135deg, rgba(39, 125, 161, 0.85) 0%, rgba(37, 35, 43, 0.95) 100%);
+  --grad-dorado: linear-gradient(135deg, #D6A85F 0%, #f0c78a 50%, #b8863b 100%);
+
+  /* Sombras y elevaciones */
+  --sombra-suave: 0 4px 20px rgba(0, 0, 0, 0.5);
+  --sombra-tarjeta: 0 8px 30px rgba(0, 0, 0, 0.65);
+  --sombra-tarjeta-hover: 0 16px 45px rgba(0, 0, 0, 0.85), 0 0 25px rgba(214, 168, 95, 0.25);
+  --sombra-impostor-hover: 0 16px 45px rgba(0, 0, 0, 0.85), 0 0 25px rgba(230, 57, 70, 0.35);
+  --sombra-texto: 0 2px 10px rgba(0, 0, 0, 0.8);
+
+  /* Tipografías y transiciones */
+  --fuente-principal: 'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, Helvetica, Arial, sans-serif;
+  --radio-borde: 12px;
+  --radio-borde-sm: 6px;
+  --transicion-suave: all 0.35s cubic-bezier(0.25, 0.8, 0.25, 1);
+  --ancho-maximo: 1320px;
+}
+
+/* ==========================================================================
+   RESET & ESTILOS BASE
+   ========================================================================== */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+  background-color: var(--color-negro);
+}
+
+body {
+  font-family: var(--fuente-principal);
+  background-color: var(--color-negro);
+  color: var(--color-marfil);
+  line-height: 1.6;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: var(--transicion-suave);
+}
+
+ul {
+  list-style: none;
+}
+
+/* Oculta imágenes sin ruta para permitir que se aprecie el marco cinematográfico */
+img[src=""], img:not([src]) {
+  opacity: 0;
+  visibility: hidden;
+}
+
+/* ==========================================================================
+   CABECERA Y NAVEGACIÓN
+   ========================================================================== */
+.header-principal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  background: rgba(17, 17, 20, 0.88);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-bottom: 1px solid rgba(214, 168, 95, 0.2);
+  transition: var(--transicion-suave);
+}
+
+.nav-contenedor {
+  max-width: var(--ancho-maximo);
+  margin: 0 auto;
+  padding: 1rem 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo-sitio {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-weight: 800;
+  font-size: 1.35rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--color-marfil);
+}
+
+.logo-icono {
+  width: 38px;
+  height: 38px;
+  background: linear-gradient(135deg, var(--color-vino) 0%, var(--color-dorado) 100%);
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 12px rgba(214, 168, 95, 0.4);
+  font-size: 1.1rem;
+}
+
+.logo-texto span {
+  color: var(--color-dorado);
+}
+
+/* Menú responsivo sin JavaScript (Checkbox Hack) */
+.menu-toggle-input {
+  display: none;
+}
+
+.menu-toggle-label {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+  padding: 8px;
+  z-index: 1001;
+}
+
+.menu-toggle-label span {
+  width: 26px;
+  height: 2px;
+  background-color: var(--color-dorado);
+  transition: var(--transicion-suave);
+}
+
+.nav-menu {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.nav-item {
+  position: relative;
+}
+
+.nav-enlace {
+  font-size: 0.95rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: var(--color-marfil);
+  padding: 0.5rem 0.25rem;
+  position: relative;
+}
+
+.nav-enlace::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--grad-dorado);
+  transition: var(--transicion-suave);
+}
+
+.nav-enlace:hover {
+  color: var(--color-dorado);
+}
+
+.nav-enlace:hover::after,
+.nav-enlace.activo::after {
+  width: 100%;
+}
+
+.nav-enlace-especial {
+  background: linear-gradient(135deg, rgba(123, 38, 61, 0.3) 0%, rgba(214, 168, 95, 0.15) 100%);
+  border: 1px solid var(--color-dorado);
+  border-radius: var(--radio-borde-sm);
+  padding: 0.45rem 1rem !important;
+  color: var(--color-dorado-claro) !important;
+}
+
+.nav-enlace-especial:hover {
+  background: var(--color-dorado);
+  color: var(--color-negro) !important;
+  box-shadow: 0 0 15px rgba(214, 168, 95, 0.4);
+}
+
+/* ==========================================================================
+   CARÁTULA CINEMATOGRÁFICA PRINCIPAL (HERO)
+   Ocupa entre el 75% y el 90% de la altura inicial de la pantalla
+   ========================================================================== */
+.hero-principal {
+  position: relative;
+  min-height: 85vh;
+  height: 85vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 6rem 2rem 4rem;
+  overflow: hidden;
+  background-color: var(--color-negro);
+}
+
+.hero-imagen-fondo {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+.hero-imagen-fondo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 30%;
+  display: block;
+}
+
+/* Efecto de marco cinematográfico cuando la imagen aún no está cargada */
+.placeholder-cinematografico {
+  background: radial-gradient(circle at 65% 45%, #25232B 0%, #17161c 50%, #111114 90%);
+  position: relative;
+}
+
+.placeholder-cinematografico::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: 
+    radial-gradient(rgba(214, 168, 95, 0.08) 1px, transparent 1px),
+    radial-gradient(rgba(123, 38, 61, 0.08) 1px, transparent 1px);
+  background-size: 40px 40px;
+  background-position: 0 0, 20px 20px;
+  opacity: 0.6;
+}
+
+.hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  /* Sin oscurecer la imagen insertada: solo transición suave en la base inferior */
+  background: linear-gradient(180deg, 
+    transparent 0%, 
+    transparent 75%, 
+    rgba(17, 17, 20, 0.75) 90%, 
+    var(--color-negro) 100%);
+  pointer-events: none;
+}
+
+.hero-contenido {
+  position: relative;
+  z-index: 3;
+  max-width: 740px;
+  margin-left: auto;
+  margin-right: max(2rem, calc((100vw - var(--ancho-maximo)) / 2));
+  padding: 2.5rem 3rem;
+  background: rgba(17, 17, 20, 0.65);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-radius: var(--radio-borde);
+  border: 1px solid rgba(214, 168, 95, 0.25);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.75);
+}
+
+.hero-etiqueta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  color: var(--color-dorado);
+  background: rgba(214, 168, 95, 0.12);
+  border: 1px solid rgba(214, 168, 95, 0.35);
+  padding: 0.4rem 1.1rem;
+  border-radius: 50px;
+  margin-bottom: 1.5rem;
+}
+
+.hero-titulo {
+  font-size: clamp(2.8rem, 6vw, 5rem);
+  font-weight: 900;
+  line-height: 1.05;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: var(--color-marfil);
+  text-shadow: var(--sombra-texto);
+  margin-bottom: 1.25rem;
+}
+
+.hero-titulo span {
+  display: block;
+  background: var(--grad-dorado);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.hero-descripcion {
+  font-size: clamp(1rem, 1.8vw, 1.25rem);
+  color: var(--color-marfil);
+  max-width: 680px;
+  margin-bottom: 2.2rem;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.9);
+  line-height: 1.7;
+}
+
+.hero-acciones {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  flex-wrap: wrap;
+}
+
+/* Botón Cinematográfico Primario */
+.btn-cinematografico {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  background: var(--grad-dorado);
+  color: var(--color-negro);
+  font-weight: 800;
+  font-size: 1rem;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  padding: 1rem 2.25rem;
+  border-radius: var(--radio-borde);
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 6px 20px rgba(214, 168, 95, 0.35);
+  transition: var(--transicion-suave);
+}
+
+.btn-cinematografico:hover {
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 10px 30px rgba(214, 168, 95, 0.55);
+  color: #000;
+}
+
+.btn-secundario {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  background: rgba(37, 35, 43, 0.6);
+  border: 1px solid rgba(233, 228, 220, 0.25);
+  color: var(--color-marfil);
+  font-weight: 700;
+  font-size: 0.95rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  padding: 0.95rem 1.85rem;
+  border-radius: var(--radio-borde);
+  backdrop-filter: blur(8px);
+  transition: var(--transicion-suave);
+}
+
+.btn-secundario:hover {
+  background: rgba(123, 38, 61, 0.4);
+  border-color: var(--color-vino-brillante);
+  transform: translateY(-2px);
+}
+
+/* ==========================================================================
+   SECCIÓN DE INTRODUCCIÓN GENERAL
+   ========================================================================== */
+.seccion-intro-general {
+  background: linear-gradient(180deg, var(--color-negro) 0%, var(--color-grafito) 50%, var(--color-negro) 100%);
+  padding: 5rem 1.5rem;
+  position: relative;
+  border-top: 1px solid rgba(214, 168, 95, 0.15);
+  border-bottom: 1px solid rgba(214, 168, 95, 0.15);
+}
+
+.contenedor {
+  max-width: var(--ancho-maximo);
+  margin: 0 auto;
+}
+
+.intro-encabezado {
+  text-align: center;
+  max-width: 860px;
+  margin: 0 auto;
+}
+
+.subtitulo-cinematografico {
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  color: var(--color-dorado);
+  font-weight: 700;
+  margin-bottom: 0.75rem;
+  display: block;
+}
+
+.titulo-seccion-principal {
+  font-size: clamp(2rem, 3.8vw, 3.2rem);
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: var(--color-marfil);
+  margin-bottom: 1.25rem;
+  line-height: 1.15;
+}
+
+.parrafo-destacado {
+  font-size: 1.15rem;
+  color: #c9c5cf;
+  line-height: 1.8;
+}
+
+/* ==========================================================================
+   PORTADAS PANORÁMICAS DE CATEGORÍA
+   ========================================================================== */
+.categoria-banner-panoramico {
+  position: relative;
+  width: 100%;
+  height: 380px;
+  border-radius: var(--radio-borde);
+  overflow: hidden;
+  margin-bottom: 3.5rem;
+  border: 1px solid rgba(214, 168, 95, 0.25);
+  box-shadow: var(--sombra-tarjeta);
+}
+
+.banner-panoramico-impostores {
+  border-color: rgba(230, 57, 70, 0.35);
+  box-shadow: 0 10px 35px rgba(123, 38, 61, 0.4);
+}
+
+.categoria-banner-imagen {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+.categoria-banner-imagen img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.categoria-banner-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  /* Transparente para no opacar ni oscurecer la imagen panorámica */
+  background: transparent;
+  display: flex;
+  align-items: flex-end;
+  padding: 2rem 2.5rem;
+}
+
+.overlay-impostor {
+  background: transparent;
+}
+
+.categoria-banner-texto {
+  max-width: 680px;
+  background: rgba(17, 17, 20, 0.75);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  padding: 1.5rem 2rem;
+  border-radius: var(--radio-borde);
+  border: 1px solid rgba(214, 168, 95, 0.25);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.8);
+}
+
+.overlay-impostor .categoria-banner-texto {
+  background: rgba(25, 12, 16, 0.8);
+  border-color: rgba(230, 57, 70, 0.4);
+}
+
+.categoria-banner-texto h3 {
+  font-size: clamp(1.8rem, 3.2vw, 2.5rem);
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: var(--color-marfil);
+  margin-bottom: 0.75rem;
+}
+
+.categoria-banner-texto p {
+  font-size: 1.05rem;
+  color: #dfdbe3;
+  line-height: 1.7;
+}
+
+/* ==========================================================================
+   PRIMERA CATEGORÍA: LOS TRIPULANTES
+   ========================================================================== */
+.seccion-tripulantes {
+  padding: 6rem 1.5rem 7rem;
+  background-color: var(--color-negro);
+  position: relative;
+}
+
+.seccion-encabezado {
+  margin-bottom: 2.5rem;
+}
+
+.seccion-etiqueta {
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  color: var(--color-tripulante-cyan);
+  display: inline-block;
+  margin-bottom: 0.5rem;
+}
+
+.seccion-titulo {
+  font-size: clamp(2.2rem, 4vw, 3.5rem);
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: var(--color-marfil);
+  margin-bottom: 1rem;
+}
+
+.seccion-descripcion {
+  font-size: 1.15rem;
+  color: var(--color-gris-humo);
+  max-width: 760px;
+  line-height: 1.8;
+}
+
+/* Cuadrícula de Tarjetas */
+.grid-tarjetas {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+
+.tarjeta-rol {
+  background: var(--color-grafito);
+  border-radius: var(--radio-borde);
+  overflow: hidden;
+  border: 1px solid rgba(214, 168, 95, 0.2);
+  box-shadow: var(--sombra-tarjeta);
+  transition: var(--transicion-suave);
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  text-decoration: none;
+  color: inherit;
+}
+
+.tarjeta-rol:hover {
+  transform: none;
+  border-color: var(--color-dorado);
+  box-shadow: var(--sombra-tarjeta-hover);
+}
+
+.tarjeta-imagen-contenedor {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  background: #1a1921;
+}
+
+.tarjeta-imagen-contenedor img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+  position: relative;
+  z-index: 3;
+  transition: transform 0.6s cubic-bezier(0.25, 0.8, 0.25, 1);
+  border-radius: calc(var(--radio-borde) - 2px) calc(var(--radio-borde) - 2px) 0 0;
+}
+
+.tarjeta-imagen-contenedor.placeholder-cinematografico::after {
+  content: '◬ ESPACIO PARA IMAGEN';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 2px;
+  color: rgba(214, 168, 95, 0.5);
+  text-transform: uppercase;
+  pointer-events: none;
+  z-index: 2;
+  border: 1px dashed rgba(214, 168, 95, 0.3);
+  padding: 0.35rem 0.75rem;
+  border-radius: 4px;
+  background: rgba(17, 17, 20, 0.7);
+}
+
+.tarjeta-rol:hover .tarjeta-imagen-contenedor img {
+  transform: none;
+}
+
+.tarjeta-overlay-gradiente {
+  display: none;
+}
+
+.tarjeta-badge-numero {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: rgba(17, 17, 20, 0.85);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(214, 168, 95, 0.35);
+  color: var(--color-dorado);
+  font-size: 0.8rem;
+  font-weight: 800;
+  letter-spacing: 1px;
+  padding: 0.35rem 0.75rem;
+  border-radius: 50px;
+  z-index: 5;
+}
+
+.tarjeta-cuerpo {
+  padding: 1.6rem 1.6rem 1.8rem;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  background: linear-gradient(180deg, rgba(37, 35, 43, 0.95) 0%, rgba(17, 17, 20, 0.98) 100%);
+}
+
+.tarjeta-categoria-tag {
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: var(--color-dorado);
+  margin-bottom: 0.5rem;
+}
+
+.tarjeta-titulo {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--color-marfil);
+  margin-bottom: 0.75rem;
+  letter-spacing: 1px;
+}
+
+.tarjeta-descripcion {
+  font-size: 0.95rem;
+  color: #b7b3be;
+  line-height: 1.65;
+  margin-bottom: 1.5rem;
+  flex-grow: 1;
+}
+
+.tarjeta-boton-conocer {
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 0.8rem 1.25rem;
+  background: rgba(214, 168, 95, 0.1);
+  border: 1px solid rgba(214, 168, 95, 0.35);
+  border-radius: var(--radio-borde-sm);
+  color: var(--color-dorado-claro);
+  font-weight: 700;
+  font-size: 0.85rem;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  transition: var(--transicion-suave);
+}
+
+.tarjeta-boton-conocer .flecha {
+  transition: transform 0.3s ease;
+}
+
+.tarjeta-rol:hover .tarjeta-boton-conocer {
+  background: var(--color-dorado);
+  color: var(--color-negro);
+  border-color: var(--color-dorado);
+  box-shadow: 0 4px 15px rgba(214, 168, 95, 0.4);
+}
+
+.tarjeta-rol:hover .tarjeta-boton-conocer .flecha {
+  transform: none;
+}
+
+/* ==========================================================================
+   SEPARADOR DRAMÁTICO / FRANJA ROJA
+   ========================================================================== */
+.separador-impostores {
+  position: relative;
+  background-color: #b71c1c;
+  background: #b71c1c;
+  padding: 4rem 1.5rem;
+  border-top: 3px solid #d32f2f;
+  border-bottom: 3px solid #d32f2f;
+  box-shadow: 0 0 35px rgba(183, 28, 28, 0.45);
+  overflow: hidden;
+}
+
+.separador-impostores::before {
+  display: none;
+}
+
+.separador-contenido {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.separador-alerta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: 0.85rem;
+  font-weight: 800;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: #ffffff;
+  background: rgba(0, 0, 0, 0.45);
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  padding: 0.4rem 1.25rem;
+  border-radius: 50px;
+  margin-bottom: 1.25rem;
+}
+
+.separador-titulo {
+  font-size: clamp(2.2rem, 4.5vw, 3.8rem);
+  font-weight: 900;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: #ffffff;
+  text-shadow: 0 4px 15px rgba(0, 0, 0, 0.9);
+  margin-bottom: 1rem;
+}
+
+.separador-descripcion {
+  font-size: 1.2rem;
+  color: #ffffff;
+  line-height: 1.8;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.8);
+}
+
+/* ==========================================================================
+   SEGUNDA CATEGORÍA: LOS IMPOSTORES
+   ========================================================================== */
+.seccion-impostores {
+  padding: 6rem 1.5rem 8rem;
+  background: radial-gradient(circle at 50% 10%, #1e1115 0%, #141013 45%, #111114 90%);
+  position: relative;
+  border-bottom: 1px solid rgba(123, 38, 61, 0.4);
+}
+
+.etiqueta-impostor {
+  color: var(--color-impostor-rojo);
+}
+
+.tarjeta-impostor {
+  background: #1a161b;
+  border-color: rgba(123, 38, 61, 0.45);
+}
+
+.tarjeta-impostor:hover {
+  border-color: var(--color-impostor-rojo);
+  box-shadow: var(--sombra-impostor-hover);
+}
+
+.tarjeta-impostor .tarjeta-categoria-tag {
+  color: var(--color-impostor-rojo);
+}
+
+.tarjeta-impostor .tarjeta-badge-numero {
+  border-color: rgba(230, 57, 70, 0.5);
+  color: #ff8591;
+}
+
+.tarjeta-impostor .tarjeta-boton-conocer {
+  background: rgba(123, 38, 61, 0.25);
+  border-color: rgba(230, 57, 70, 0.45);
+  color: #ffb4be;
+}
+
+.tarjeta-impostor:hover .tarjeta-boton-conocer {
+  background: var(--color-impostor-rojo);
+  color: #fff;
+  border-color: var(--color-impostor-rojo);
+  box-shadow: 0 4px 15px rgba(230, 57, 70, 0.5);
+}
+
+.grid-tarjetas-impostores {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+}
+
+/* ==========================================================================
+   PIE DE PÁGINA CINEMATOGRÁFICO
+   ========================================================================== */
+.footer-principal {
+  background: #0b0b0d;
+  border-top: 1px solid rgba(214, 168, 95, 0.15);
+  padding: 5rem 1.5rem 3rem;
+  color: var(--color-gris-humo);
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1.5fr;
+  gap: 3rem;
+  margin-bottom: 4rem;
+}
+
+.footer-columna-info .logo-sitio {
+  margin-bottom: 1.25rem;
+}
+
+.footer-descripcion {
+  font-size: 0.95rem;
+  line-height: 1.8;
+  color: #9f9ba7;
+  margin-bottom: 1.5rem;
+}
+
+.footer-titulo-columna {
+  font-size: 1rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: var(--color-marfil);
+  margin-bottom: 1.5rem;
+  position: relative;
+  padding-bottom: 0.5rem;
+}
+
+.footer-titulo-columna::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 32px;
+  height: 2px;
+  background: var(--color-dorado);
+}
+
+.footer-enlaces li {
+  margin-bottom: 0.75rem;
+}
+
+.footer-enlaces a {
+  font-size: 0.9rem;
+  color: #b7b3be;
+  transition: var(--transicion-suave);
+  display: inline-block;
+}
+
+.footer-enlaces a:hover {
+  color: var(--color-dorado);
+  transform: translateX(4px);
+}
+
+.footer-creditos-box {
+  background: rgba(37, 35, 43, 0.45);
+  border: 1px solid rgba(214, 168, 95, 0.2);
+  border-radius: var(--radio-borde-sm);
+  padding: 1.25rem;
+  font-size: 0.88rem;
+  line-height: 1.7;
+}
+
+.footer-creditos-box strong {
+  color: var(--color-dorado);
+  display: block;
+  margin-bottom: 0.35rem;
+}
+
+.footer-bottom {
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  padding-top: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+  font-size: 0.88rem;
+}
+
+.footer-copy {
+  color: #77747D;
+}
+
+.footer-enlace-referencias-destacado {
+  color: var(--color-dorado);
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  border: 1px solid rgba(214, 168, 95, 0.3);
+  border-radius: var(--radio-borde-sm);
+  background: rgba(214, 168, 95, 0.08);
+}
+
+.footer-enlace-referencias-destacado:hover {
+  background: var(--color-dorado);
+  color: var(--color-negro);
+}

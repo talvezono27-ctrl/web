@@ -1,0 +1,206 @@
+/* ==========================================================================
+   AMONG US - EXPERIENCIA CINEMATOGRÁFICA
+   Hoja de Estilos para Página de Referencias (referencias.css)
+   ========================================================================== */
+
+.seccion-referencias-cuerpo {
+  padding: 4rem 1.5rem 7rem;
+  background-color: var(--color-negro);
+}
+
+.referencias-cabecera {
+  text-align: center;
+  max-width: 900px;
+  margin: 0 auto 3.5rem;
+}
+
+.referencias-etiqueta {
+  display: inline-block;
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  color: var(--color-dorado);
+  margin-bottom: 0.75rem;
+}
+
+.referencias-titulo {
+  font-size: clamp(2.2rem, 4vw, 3.6rem);
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: var(--color-marfil);
+  margin-bottom: 1.25rem;
+  line-height: 1.15;
+}
+
+.referencias-descripcion {
+  font-size: 1.15rem;
+  color: #c0bcc8;
+  line-height: 1.8;
+}
+
+/* Contenedor Adaptable de la Tabla */
+.tabla-referencias-contenedor {
+  width: 100%;
+  overflow-x: auto;
+  border-radius: var(--radio-borde);
+  border: 1px solid rgba(214, 168, 95, 0.25);
+  box-shadow: var(--sombra-tarjeta);
+  background: #141318;
+  margin-bottom: 3.5rem;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Personalización de la barra de desplazamiento horizontal */
+.tabla-referencias-contenedor::-webkit-scrollbar {
+  height: 8px;
+}
+
+.tabla-referencias-contenedor::-webkit-scrollbar-track {
+  background: #111114;
+}
+
+.tabla-referencias-contenedor::-webkit-scrollbar-thumb {
+  background: var(--color-dorado);
+  border-radius: 4px;
+}
+
+/* Estilos de la Tabla */
+.tabla-referencias {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 980px; /* Garantiza legibilidad en pantallas estrechas mediante scroll horizontal */
+  text-align: left;
+}
+
+.tabla-referencias thead {
+  background: linear-gradient(180deg, #25232B 0%, #1c1a21 100%);
+  border-bottom: 2px solid var(--color-dorado);
+}
+
+.tabla-referencias th {
+  padding: 1.25rem 1.1rem;
+  font-size: 0.82rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: var(--color-dorado);
+  white-space: nowrap;
+}
+
+.tabla-referencias th:first-child {
+  text-align: center;
+  width: 60px;
+}
+
+.tabla-referencias tbody tr {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  transition: background-color 0.25s ease;
+}
+
+.tabla-referencias tbody tr:nth-child(even) {
+  background: rgba(37, 35, 43, 0.35);
+}
+
+.tabla-referencias tbody tr:nth-child(odd) {
+  background: rgba(17, 17, 20, 0.5);
+}
+
+.tabla-referencias tbody tr:hover {
+  background: rgba(214, 168, 95, 0.08);
+}
+
+.tabla-referencias td {
+  padding: 1.1rem 1.1rem;
+  font-size: 0.92rem;
+  color: #dfdbe5;
+  vertical-align: middle;
+  line-height: 1.5;
+}
+
+.tabla-referencias td:first-child {
+  text-align: center;
+  font-weight: 800;
+  color: var(--color-dorado);
+}
+
+.tabla-categoria-badge {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  padding: 0.2rem 0.5rem;
+  border-radius: 4px;
+  margin-top: 0.3rem;
+}
+
+.badge-tab-trip {
+  background: rgba(39, 125, 161, 0.2);
+  color: var(--color-tripulante-cyan);
+  border: 1px solid rgba(63, 224, 208, 0.3);
+}
+
+.badge-tab-imp {
+  background: rgba(123, 38, 61, 0.25);
+  color: #ff8591;
+  border: 1px solid rgba(230, 57, 70, 0.3);
+}
+
+.badge-tab-gen {
+  background: rgba(214, 168, 95, 0.15);
+  color: var(--color-dorado);
+  border: 1px solid rgba(214, 168, 95, 0.3);
+}
+
+/* Enlaces dentro de la tabla */
+.enlace-fuente {
+  color: var(--color-dorado);
+  font-weight: 700;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  transition: var(--transicion-suave);
+  word-break: break-all;
+}
+
+.enlace-fuente:hover {
+  color: var(--color-dorado-claro);
+  text-shadow: 0 0 8px rgba(214, 168, 95, 0.4);
+}
+
+.enlace-fuente-vino {
+  color: #ff8591;
+}
+
+.enlace-fuente-vino:hover {
+  color: #ffb4be;
+  text-shadow: 0 0 8px rgba(230, 57, 70, 0.4);
+}
+
+.nota-metodologica {
+  background: rgba(37, 35, 43, 0.5);
+  border-left: 4px solid var(--color-dorado);
+  padding: 1.5rem 2rem;
+  border-radius: 0 var(--radio-borde-sm) var(--radio-borde-sm) 0;
+  margin-top: 3rem;
+}
+
+.nota-metodologica h4 {
+  color: var(--color-dorado);
+  font-size: 1.1rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 0.5rem;
+}
+
+.nota-metodologica p {
+  font-size: 0.95rem;
+  color: #b7b3be;
+  line-height: 1.7;
+}
+

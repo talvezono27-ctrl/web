@@ -1,0 +1,708 @@
+/* ==========================================================================
+   AMONG US - EXPERIENCIA CINEMATOGRÁFICA
+   Hoja de Estilos para Páginas Secundarias (secundarios.css)
+   ========================================================================== */
+
+/* Barra de Retorno Superior Fija/Visible */
+.barra-retorno-superior {
+  background: rgba(17, 17, 20, 0.95);
+  border-bottom: 1px solid rgba(214, 168, 95, 0.25);
+  padding: 0.85rem 1.5rem;
+  position: sticky;
+  top: 0;
+  z-index: 999;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.barra-retorno-contenedor {
+  max-width: var(--ancho-maximo);
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+/* Botón Obligatorio de Retorno al Inicio */
+.btn-volver-principal {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  background: linear-gradient(135deg, rgba(214, 168, 95, 0.15) 0%, rgba(123, 38, 61, 0.25) 100%);
+  border: 1px solid var(--color-dorado);
+  color: var(--color-marfil);
+  font-weight: 800;
+  font-size: 0.88rem;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  padding: 0.65rem 1.5rem;
+  border-radius: var(--radio-borde-sm);
+  transition: var(--transicion-suave);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+}
+
+.btn-volver-principal:hover {
+  background: var(--color-dorado);
+  color: var(--color-negro);
+  box-shadow: 0 0 20px rgba(214, 168, 95, 0.5);
+  transform: translateX(-4px);
+}
+
+.migas-de-pan {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.85rem;
+  color: var(--color-gris-humo);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.migas-de-pan a {
+  color: #b7b3be;
+}
+
+.migas-de-pan a:hover {
+  color: var(--color-dorado);
+}
+
+.migas-de-pan .separador-migas {
+  color: var(--color-dorado);
+  opacity: 0.6;
+}
+
+.migas-de-pan .actual {
+  color: var(--color-marfil);
+  font-weight: 700;
+}
+
+/* ==========================================================================
+   PORTADA PANORÁMICA DEL ROL
+   ========================================================================== */
+.portada-rol {
+  position: relative;
+  min-height: 520px;
+  width: 100%;
+  overflow: hidden;
+  display: flex;
+  align-items: flex-end;
+  padding: 5rem 1.5rem 4rem;
+  border-bottom: 1px solid rgba(214, 168, 95, 0.2);
+}
+
+.portada-rol-impostor {
+  border-bottom-color: rgba(230, 57, 70, 0.4);
+}
+
+.portada-rol-imagen-fondo {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+.portada-rol-imagen-fondo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.portada-rol-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  /* Sin oscurecer la imagen panorámica: solo transición suave en el borde inferior */
+  background: linear-gradient(180deg, 
+    transparent 0%, 
+    transparent 70%, 
+    rgba(17, 17, 20, 0.8) 90%, 
+    #111114 100%);
+}
+
+.portada-rol-impostor .portada-rol-overlay {
+  background: linear-gradient(180deg, 
+    transparent 0%, 
+    transparent 70%, 
+    rgba(20, 10, 14, 0.85) 90%, 
+    #111114 100%);
+}
+
+.portada-rol-contenido {
+  position: relative;
+  z-index: 3;
+  max-width: var(--ancho-maximo);
+  width: 100%;
+  margin: 0 auto;
+  background: rgba(17, 17, 20, 0.65);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  padding: 2rem 2.5rem;
+  border-radius: var(--radio-borde);
+  border: 1px solid rgba(214, 168, 95, 0.25);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
+}
+
+.portada-rol-impostor .portada-rol-contenido {
+  background: rgba(25, 12, 16, 0.75);
+  border-color: rgba(230, 57, 70, 0.35);
+}
+
+.badges-rol-cabecera {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  margin-bottom: 1.25rem;
+}
+
+.badge-facción {
+  font-size: 0.8rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  padding: 0.35rem 1rem;
+  border-radius: 50px;
+}
+
+.badge-tripulante {
+  background: rgba(39, 125, 161, 0.25);
+  border: 1px solid var(--color-tripulante-cyan);
+  color: var(--color-tripulante-cyan);
+}
+
+.badge-impostor {
+  background: rgba(123, 38, 61, 0.4);
+  border: 1px solid var(--color-impostor-rojo);
+  color: #ff8591;
+}
+
+.badge-identificador {
+  background: rgba(214, 168, 95, 0.15);
+  border: 1px solid rgba(214, 168, 95, 0.4);
+  color: var(--color-dorado);
+  font-size: 0.8rem;
+  font-weight: 800;
+  padding: 0.35rem 0.85rem;
+  border-radius: 50px;
+}
+
+.portada-rol-titulo {
+  font-size: clamp(2.6rem, 5.5vw, 4.5rem);
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: var(--color-marfil);
+  line-height: 1.05;
+  margin-bottom: 1rem;
+}
+
+.portada-rol-lema {
+  font-size: clamp(1.1rem, 2vw, 1.35rem);
+  color: #d6a85f;
+  font-style: italic;
+  max-width: 800px;
+  line-height: 1.6;
+}
+
+/* ==========================================================================
+   ESTRUCTURA DE CONTENIDO DEL ROL
+   ========================================================================== */
+.contenido-rol-cuerpo {
+  padding: 5rem 1.5rem 6rem;
+  background: var(--color-negro);
+}
+
+.layout-rol {
+  display: block;
+  max-width: 980px;
+  margin: 0 auto;
+}
+
+.columna-contenido-rol {
+  width: 100%;
+}
+
+.columna-lateral-rol, 
+.columna-sidebar-rol {
+  display: none;
+}
+
+.subtitulo-seccion {
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: var(--color-dorado);
+  margin-top: 1.75rem;
+  margin-bottom: 0.75rem;
+  letter-spacing: 0.5px;
+}
+
+.detalle-impostor .subtitulo-seccion {
+  color: #ff8591;
+}
+
+.lista-texto-plano {
+  list-style: none;
+  padding-left: 0;
+  margin: 1.25rem 0 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+
+.lista-texto-plano li {
+  font-size: 1.05rem;
+  color: #d1cdd8;
+  line-height: 1.8;
+  position: relative;
+  padding-left: 1.75rem;
+}
+
+.lista-texto-plano li::before {
+  content: '▸';
+  position: absolute;
+  left: 0;
+  color: var(--color-dorado);
+  font-weight: bold;
+}
+
+.detalle-impostor .lista-texto-plano li::before {
+  color: var(--color-impostor-rojo);
+}
+
+.lista-texto-plano strong {
+  color: var(--color-marfil);
+}
+
+/* Eliminación de contenedores tipo caja en los contenidos */
+.grid-habilidades,
+.grid-ventajas-limitaciones {
+  display: block;
+  margin-top: 1rem;
+}
+
+.tarjeta-habilidad,
+.caja-ventajas,
+.caja-limitaciones,
+.caja-curiosidades,
+.caja-tactica {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+  margin-bottom: 1.5rem !important;
+  border-radius: 0 !important;
+}
+
+.contenido-rol-cuerpo .seccion-multimedia-modulo {
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  padding: 1.5rem 0;
+}
+
+.contenido-rol-cuerpo .tarjeta-reproductor {
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  padding: 0;
+}
+
+/* Ficha Técnica Lateral / Resumen */
+.ficha-tecnica {
+  background: var(--color-grafito);
+  border: 1px solid rgba(214, 168, 95, 0.25);
+  border-radius: var(--radio-borde);
+  padding: 2rem;
+  box-shadow: var(--sombra-tarjeta);
+  position: sticky;
+  top: 5.5rem;
+}
+
+.ficha-impostor {
+  border-color: rgba(230, 57, 70, 0.4);
+  background: #1c1820;
+}
+
+.ficha-titulo {
+  font-size: 1.25rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: var(--color-dorado);
+  margin-bottom: 1.5rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid rgba(214, 168, 95, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.ficha-lista {
+  display: flex;
+  flex-direction: column;
+  gap: 1.15rem;
+}
+
+.ficha-fila {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.95rem;
+  padding-bottom: 0.65rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.ficha-label {
+  color: var(--color-gris-humo);
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 0.8rem;
+  letter-spacing: 1px;
+}
+
+.ficha-valor {
+  color: var(--color-marfil);
+  font-weight: 700;
+  text-align: right;
+}
+
+.ficha-valor.destacado {
+  color: var(--color-dorado-claro);
+}
+
+.ficha-valor.peligro {
+  color: #ff6b7b;
+}
+
+/* Secciones de Contenido Principal */
+.seccion-detalle {
+  margin-bottom: 4rem;
+}
+
+.seccion-detalle-titulo {
+  font-size: 1.75rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: var(--color-marfil);
+  margin-bottom: 1.25rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  position: relative;
+  padding-left: 1.25rem;
+}
+
+.seccion-detalle-titulo::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.2rem;
+  bottom: 0.2rem;
+  width: 4px;
+  background: var(--color-dorado);
+  border-radius: 4px;
+}
+
+.detalle-impostor .seccion-detalle-titulo::before {
+  background: var(--color-impostor-rojo);
+}
+
+.texto-parrafo {
+  font-size: 1.05rem;
+  color: #d1cdd8;
+  line-height: 1.8;
+  margin-bottom: 1.25rem;
+}
+
+/* Tarjetas de Habilidades y Funciones */
+.grid-habilidades {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.75rem;
+  margin-top: 1.5rem;
+}
+
+.tarjeta-habilidad {
+  background: rgba(37, 35, 43, 0.7);
+  border: 1px solid rgba(214, 168, 95, 0.2);
+  border-radius: var(--radio-borde);
+  padding: 1.75rem;
+  transition: var(--transicion-suave);
+}
+
+.tarjeta-habilidad:hover {
+  transform: translateY(-4px);
+  border-color: var(--color-dorado);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.6);
+}
+
+.habilidad-impostor:hover {
+  border-color: var(--color-impostor-rojo);
+}
+
+.habilidad-encabezado {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.habilidad-nombre {
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: var(--color-marfil);
+  letter-spacing: 1px;
+}
+
+.habilidad-tipo-tag {
+  font-size: 0.75rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  padding: 0.25rem 0.65rem;
+  border-radius: 4px;
+  background: rgba(214, 168, 95, 0.2);
+  color: var(--color-dorado);
+}
+
+.habilidad-desc {
+  font-size: 0.95rem;
+  color: #b7b3be;
+  line-height: 1.65;
+  margin-bottom: 1rem;
+}
+
+.habilidad-metrica {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: rgba(17, 17, 20, 0.6);
+  padding: 0.6rem 0.85rem;
+  border-radius: var(--radio-borde-sm);
+  font-size: 0.85rem;
+  color: var(--color-marfil);
+}
+
+.habilidad-metrica strong {
+  color: var(--color-dorado);
+}
+
+/* Comparativa: Ventajas y Limitaciones */
+.grid-ventajas-limitaciones {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  margin-top: 1.5rem;
+}
+
+.caja-ventajas, .caja-limitaciones {
+  border-radius: var(--radio-borde);
+  padding: 2rem;
+  background: rgba(37, 35, 43, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.caja-ventajas {
+  border-color: rgba(63, 224, 208, 0.35);
+  background: linear-gradient(180deg, rgba(39, 125, 161, 0.12) 0%, rgba(37, 35, 43, 0.6) 100%);
+}
+
+.caja-limitaciones {
+  border-color: rgba(230, 57, 70, 0.35);
+  background: linear-gradient(180deg, rgba(123, 38, 61, 0.15) 0%, rgba(37, 35, 43, 0.6) 100%);
+}
+
+.caja-titulo-ventaja {
+  font-size: 1.2rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: var(--color-tripulante-cyan);
+  margin-bottom: 1.25rem;
+}
+
+.caja-titulo-limitacion {
+  font-size: 1.2rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: #ff8591;
+  margin-bottom: 1.25rem;
+}
+
+.lista-puntos {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+
+.lista-puntos li {
+  font-size: 0.95rem;
+  color: #ded9e4;
+  line-height: 1.6;
+  position: relative;
+  padding-left: 1.5rem;
+}
+
+.lista-puntos.ventajas li::before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  color: var(--color-tripulante-cyan);
+  font-weight: 800;
+}
+
+.lista-puntos.limitaciones li::before {
+  content: '✕';
+  position: absolute;
+  left: 0;
+  color: var(--color-impostor-rojo);
+  font-weight: 800;
+}
+
+/* Curiosidades y Secretos */
+.caja-curiosidades {
+  background: linear-gradient(135deg, rgba(214, 168, 95, 0.08) 0%, rgba(37, 35, 43, 0.8) 100%);
+  border: 1px solid rgba(214, 168, 95, 0.3);
+  border-radius: var(--radio-borde);
+  padding: 2.25rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.caja-curiosidades::after {
+  content: '★';
+  position: absolute;
+  top: 1rem;
+  right: 1.5rem;
+  font-size: 4rem;
+  color: rgba(214, 168, 95, 0.1);
+  pointer-events: none;
+}
+
+/* Galería de Imágenes Adicionales */
+.galeria-adicional {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+.galeria-item {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border-radius: var(--radio-borde);
+  overflow: hidden;
+  border: 1px solid rgba(214, 168, 95, 0.2);
+  background: #1c1a23;
+  box-shadow: var(--sombra-tarjeta);
+}
+
+.galeria-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  position: relative;
+  z-index: 3;
+}
+
+.galeria-item.placeholder-cinematografico::after {
+  content: '◬ ESPACIO PARA IMAGEN ADICIONAL';
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 2px;
+  color: rgba(214, 168, 95, 0.45);
+  text-transform: uppercase;
+  pointer-events: none;
+  z-index: 2;
+  border: 1px dashed rgba(214, 168, 95, 0.3);
+  padding: 0.35rem 0.75rem;
+  border-radius: 4px;
+  background: rgba(17, 17, 20, 0.7);
+}
+
+.galeria-item:hover img,
+img:hover {
+  transform: none !important;
+}
+
+.galeria-pie {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 0.85rem 1.25rem;
+  background: linear-gradient(180deg, transparent 0%, rgba(17, 17, 20, 0.95) 90%);
+  font-size: 0.85rem;
+  color: #dfdbe3;
+  font-weight: 600;
+}
+
+/* ==========================================================================
+   NAVEGACIÓN ENTRE ROLES
+   ========================================================================== */
+.navegacion-entre-roles {
+  margin-top: 5rem;
+  padding-top: 3rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.nav-rol-card {
+  display: inline-flex;
+  align-items: center;
+  gap: 1rem;
+  background: rgba(37, 35, 43, 0.6);
+  border: 1px solid rgba(214, 168, 95, 0.25);
+  border-radius: var(--radio-borde-sm);
+  padding: 1rem 1.5rem;
+  color: var(--color-marfil);
+  transition: var(--transicion-suave);
+  max-width: 320px;
+}
+
+.nav-rol-card:hover {
+  background: rgba(214, 168, 95, 0.15);
+  border-color: var(--color-dorado);
+  transform: none;
+}
+
+.nav-rol-direccion {
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--color-dorado);
+  letter-spacing: 1px;
+}
+
+.nav-rol-nombre {
+  font-size: 1.05rem;
+  font-weight: 800;
+  color: var(--color-marfil);
+}
+
+.botonera-retorno-inferior {
+  text-align: center;
+  margin-top: 4rem;
+  padding: 3rem 0;
+  border-top: 1px dashed rgba(214, 168, 95, 0.2);
+}

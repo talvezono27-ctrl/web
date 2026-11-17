@@ -1,0 +1,157 @@
+/* ==========================================================================
+   AMONG US - EXPERIENCIA CINEMATOGRÁFICA
+   Estilos Multimedia: Audio, Video y Reproductores (multimedia.css)
+   ========================================================================== */
+
+.seccion-multimedia-modulo {
+  margin: 3.5rem 0;
+  padding: 2.5rem;
+  background: linear-gradient(180deg, rgba(37, 35, 43, 0.7) 0%, rgba(17, 17, 20, 0.95) 100%);
+  border: 1px solid rgba(214, 168, 95, 0.3);
+  border-radius: var(--radio-borde);
+  box-shadow: var(--sombra-tarjeta);
+}
+
+.seccion-multimedia-impostor {
+  background: linear-gradient(180deg, rgba(50, 15, 24, 0.7) 0%, rgba(17, 17, 20, 0.95) 100%);
+  border-color: rgba(230, 57, 70, 0.4);
+}
+
+.multimedia-encabezado {
+  margin-bottom: 2rem;
+  text-align: left;
+}
+
+.multimedia-subtitulo {
+  font-size: 0.8rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: var(--color-dorado);
+  display: block;
+  margin-bottom: 0.35rem;
+}
+
+.seccion-multimedia-impostor .multimedia-subtitulo {
+  color: var(--color-impostor-rojo);
+}
+
+.multimedia-titulo {
+  font-size: 1.6rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  color: var(--color-marfil);
+  letter-spacing: 1px;
+}
+
+.grid-multimedia-dual {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  align-items: start;
+}
+
+/* Tarjetas de Reproductor */
+.tarjeta-reproductor {
+  background: rgba(17, 17, 20, 0.8);
+  border: 1px solid rgba(214, 168, 95, 0.2);
+  border-radius: var(--radio-borde-sm);
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.seccion-multimedia-impostor .tarjeta-reproductor {
+  border-color: rgba(230, 57, 70, 0.25);
+}
+
+.reproductor-info {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.icono-multimedia {
+  font-size: 1.4rem;
+}
+
+.reproductor-texto h4 {
+  font-size: 1.05rem;
+  font-weight: 800;
+  color: var(--color-marfil);
+  margin-bottom: 0.2rem;
+}
+
+.reproductor-texto p {
+  font-size: 0.85rem;
+  color: var(--color-gris-humo);
+  line-height: 1.5;
+}
+
+/* Estilos de Audio */
+.audio-wrapper {
+  width: 100%;
+  padding-top: 0.5rem;
+}
+
+audio {
+  width: 100%;
+  height: 44px;
+  border-radius: 8px;
+  outline: none;
+}
+
+/* Estilos de Video */
+.video-wrapper {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  background: #000;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid rgba(214, 168, 95, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+video {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+  background: #000;
+}
+
+/* Botón Regresar según rúbrica */
+.btn-regresar {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: linear-gradient(135deg, rgba(214, 168, 95, 0.15) 0%, rgba(123, 38, 61, 0.25) 100%);
+  border: 1px solid var(--color-dorado);
+  color: var(--color-marfil);
+  font-weight: 800;
+  font-size: 0.88rem;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  padding: 0.65rem 1.5rem;
+  border-radius: var(--radio-borde-sm);
+  transition: var(--transicion-suave);
+}
+
+.btn-regresar:hover {
+  background: var(--color-dorado);
+  color: var(--color-negro);
+  box-shadow: 0 0 15px rgba(214, 168, 95, 0.45);
+}
+
+/* Responsividad para Multimedia */
+@media (max-width: 860px) {
+  .grid-multimedia-dual {
+    grid-template-columns: 1fr;
+    gap: 1.75rem;
+  }
+}
+

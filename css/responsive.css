@@ -1,0 +1,354 @@
+/* ==========================================================================
+   AMONG US - EXPERIENCIA CINEMATOGRÁFICA
+   Hoja de Estilos de Adaptabilidad y Responsividad (responsive.css)
+   ========================================================================== */
+
+/* ==========================================================================
+   PANTALLAS GRANDES Y ESCRITORIO (>= 1200px)
+   ========================================================================== */
+@media (min-width: 1200px) {
+  .grid-tarjetas {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .grid-tarjetas-impostores {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+/* ==========================================================================
+   PANTALLAS MEDIANAS / PORTÁTILES (992px a 1199px)
+   ========================================================================== */
+@media (max-width: 1199px) {
+  .hero-principal {
+    height: 80vh;
+    min-height: 580px;
+    padding: 6rem 2rem 3rem;
+  }
+
+  .grid-tarjetas {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+  }
+
+  .grid-tarjetas-impostores {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.75rem;
+  }
+
+  .layout-rol {
+    grid-template-columns: 1.8fr 1fr;
+    gap: 2.5rem;
+  }
+
+  .footer-grid {
+    grid-template-columns: 1.5fr 1fr 1fr;
+    gap: 2.5rem;
+  }
+
+  .footer-columna-destacada {
+    grid-column: span 3;
+  }
+}
+
+/* ==========================================================================
+   TABLETS (768px a 991px)
+   Requisito obligatorio: Mostrar 2 tarjetas por fila
+   ========================================================================== */
+@media (max-width: 991px) {
+  .hero-principal {
+    height: auto;
+    min-height: 75vh;
+    padding: 7rem 1.5rem 4rem;
+  }
+
+  .hero-contenido {
+    margin-left: 0;
+    margin-right: 0;
+    max-width: 100%;
+    padding: 2rem 1.75rem;
+  }
+
+  .portada-rol-contenido {
+    padding: 1.75rem 1.5rem;
+  }
+
+  .grid-tarjetas {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+
+  .grid-tarjetas-impostores {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+
+  .layout-rol {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+
+  .ficha-tecnica {
+    position: static;
+    order: -1;
+    margin-bottom: 2rem;
+  }
+
+  .grid-ventajas-limitaciones {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .galeria-adicional {
+    grid-template-columns: 1fr;
+  }
+
+  .categoria-banner-panoramico {
+    height: 320px;
+  }
+
+  .categoria-banner-overlay {
+    padding: 2rem;
+  }
+
+  .footer-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+  }
+
+  .footer-columna-destacada {
+    grid-column: span 2;
+  }
+}
+
+/* ==========================================================================
+   DISPOSITIVOS MÓVILES Y CELULARES (< 768px)
+   ========================================================================== */
+@media (max-width: 767px) {
+  /* Menú Móvil sin JavaScript con Checkbox Hack */
+  .menu-toggle-label {
+    display: flex;
+  }
+
+  .nav-menu {
+    position: fixed;
+    top: 70px;
+    left: 0;
+    width: 100%;
+    background: rgba(17, 17, 20, 0.98);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-bottom: 2px solid var(--color-dorado);
+    flex-direction: column;
+    align-items: stretch;
+    padding: 1.5rem 2rem 2.5rem;
+    gap: 1.25rem;
+    transform: translateY(-150%);
+    opacity: 0;
+    visibility: hidden;
+    transition: transform 0.4s ease, opacity 0.3s ease, visibility 0.4s;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.9);
+  }
+
+  /* Animación del botón hamburguesa */
+  .menu-toggle-input:checked ~ .nav-menu {
+    transform: translateY(0);
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .menu-toggle-input:checked ~ .menu-toggle-label span:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+  }
+
+  .menu-toggle-input:checked ~ .menu-toggle-label span:nth-child(2) {
+    opacity: 0;
+  }
+
+  .menu-toggle-input:checked ~ .menu-toggle-label span:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+  }
+
+  .nav-enlace {
+    font-size: 1.1rem;
+    padding: 0.75rem 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    display: block;
+  }
+
+  /* Carátula Principal en Celulares */
+  .hero-principal {
+    min-height: 80vh;
+    padding: 6.5rem 1.25rem 3.5rem;
+  }
+
+  .hero-contenido {
+    margin-left: 0;
+    margin-right: 0;
+    max-width: 100%;
+    padding: 1.5rem 1.25rem;
+  }
+
+  .portada-rol-contenido {
+    padding: 1.5rem 1.25rem;
+  }
+
+  .hero-titulo {
+    font-size: 2.3rem;
+  }
+
+  .hero-descripcion {
+    font-size: 1rem;
+    margin-bottom: 1.75rem;
+  }
+
+  .hero-acciones {
+    flex-direction: column;
+    align-items: stretch;
+    width: 100%;
+  }
+
+  .btn-cinematografico, .btn-secundario {
+    width: 100%;
+    justify-content: center;
+    text-align: center;
+    padding: 0.95rem 1.25rem;
+  }
+
+  /* Cuadrícula de Tarjetas: 1 columna en móviles estrechos */
+  .grid-tarjetas {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .grid-tarjetas-impostores {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .categoria-banner-panoramico {
+    height: 260px;
+    margin-bottom: 2.5rem;
+  }
+
+  .categoria-banner-overlay {
+    padding: 1.5rem;
+  }
+
+  .categoria-banner-texto h3 {
+    font-size: 1.5rem;
+  }
+
+  .categoria-banner-texto p {
+    font-size: 0.9rem;
+  }
+
+  /* Portadas de Páginas Secundarias */
+  .portada-rol {
+    min-height: 420px;
+    padding: 4.5rem 1.25rem 2.5rem;
+  }
+
+  .portada-rol-titulo {
+    font-size: 2.3rem;
+  }
+
+  .portada-rol-lema {
+    font-size: 1rem;
+  }
+
+  .seccion-tripulantes, 
+  .seccion-impostores, 
+  .contenido-rol-cuerpo, 
+  .seccion-referencias-cuerpo {
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
+  }
+
+  .barra-retorno-contenedor {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.75rem;
+  }
+
+  .btn-volver-principal {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .navegacion-entre-roles {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .nav-rol-card {
+    max-width: 100%;
+    justify-content: center;
+    text-align: center;
+  }
+
+  /* Footer en Móvil */
+  .footer-grid {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+
+  .footer-columna-destacada {
+    grid-column: span 1;
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+    text-align: center;
+    gap: 1.25rem;
+  }
+}
+
+/* ==========================================================================
+   CELULARES MUY PEQUEÑOS (< 420px)
+   ========================================================================== */
+@media (max-width: 420px) {
+  .hero-titulo {
+    font-size: 2rem;
+  }
+
+  .seccion-titulo, .separador-titulo, .referencias-titulo {
+    font-size: 1.85rem;
+  }
+
+  .tarjeta-titulo {
+    font-size: 1.3rem;
+  }
+
+  .tarjeta-cuerpo {
+    padding: 1.25rem;
+  }
+}
+
+/* ==========================================================================
+   ACCESIBILIDAD: PREFERS-REDUCED-MOTION
+   Respeta la preferencia del sistema de movimiento reducido
+   ========================================================================== */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .tarjeta-rol:hover {
+    transform: none !important;
+  }
+
+  .tarjeta-rol:hover .tarjeta-imagen-contenedor img {
+    transform: none !important;
+  }
+
+  .btn-cinematografico:hover,
+  .btn-secundario:hover,
+  .btn-volver-principal:hover {
+    transform: none !important;
+  }
+}
+
